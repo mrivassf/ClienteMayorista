@@ -1306,6 +1306,186 @@
     input[type="radio"] {
       display: none;
     }
+
+    /* ── CLIENT VIEW (CONSULTAR) ── */
+    .cl-view-container {
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 120px);
+      min-height: 480px;
+      overflow: hidden;
+      margin-top: 5px;
+    }
+
+    .cl-view-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 12px;
+      flex: 1;
+      min-height: 0;
+    }
+
+    .cl-view-card {
+      background: #fff;
+      border: 1px solid var(--g200);
+      border-radius: var(--rl);
+      padding: 12px 16px;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .cl-view-card-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: .05em;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      border-bottom: 1px solid var(--g100);
+      padding-bottom: 6px;
+      flex-shrink: 0;
+    }
+
+    .cl-view-card-title svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .cl-view-card-body {
+      flex: 1;
+      overflow-y: auto;
+      font-size: 12.5px;
+      min-height: 0;
+    }
+
+    .cl-view-card-body::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .cl-view-card-body::-webkit-scrollbar-thumb {
+      background: var(--g200);
+      border-radius: 99px;
+    }
+
+    .cl-view-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cl-view-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px dashed var(--g100);
+      padding-bottom: 6px;
+    }
+
+    .cl-view-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .cl-view-lbl {
+      color: var(--g600);
+      font-weight: 500;
+    }
+
+    .cl-view-val {
+      text-align: right;
+      color: var(--g800);
+      font-weight: 600;
+    }
+
+    .cl-view-val.mono {
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .cl-view-locs {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .cl-view-loc-card {
+      border: 1px solid var(--g100);
+      border-radius: var(--r);
+      padding: 8px 10px;
+      background: var(--g50);
+      transition: border-color .15s;
+    }
+
+    .cl-view-loc-card:hover {
+      border-color: var(--accent-soft);
+    }
+
+    .cl-view-loc-title {
+      font-weight: 600;
+      font-size: 12.5px;
+      color: var(--g800);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 3px;
+    }
+
+    .cl-view-loc-desc {
+      font-size: 11px;
+      color: var(--g600);
+      margin-bottom: 4px;
+    }
+
+    .cl-view-loc-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 11px;
+      color: var(--g400);
+      border-top: 1px solid var(--g100);
+      padding-top: 4px;
+      margin-top: 4px;
+    }
+
+    .cl-view-progress-container {
+      margin: 12px 0;
+    }
+
+    .cl-view-progress-bar {
+      height: 8px;
+      background: var(--g100);
+      border-radius: 99px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .cl-view-progress-fill {
+      height: 100%;
+      background: var(--green);
+      border-radius: 99px;
+      transition: width .4s ease;
+    }
+
+    .cl-view-progress-fill.amber {
+      background: var(--amber);
+    }
+
+    .cl-view-progress-fill.red {
+      background: var(--red);
+    }
+
+    .cl-view-progress-labels {
+      display: flex;
+      justify-content: space-between;
+      font-size: 11px;
+      color: var(--g400);
+      margin-top: 4px;
+    }
   </style>
 </head>
 
@@ -2111,6 +2291,11 @@
               <td>
                 <div class="mw"><button class="db" onclick="openMenu(this)">⋮</button>
                   <div class="dd">
+                    <div class="ddi" onclick="go('cl-view','El Sol');closeMenus()"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>Ver</div>
                     <div class="ddi" onclick="go('cl-form','editar','El Sol');closeMenus()"><svg viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
@@ -2149,6 +2334,11 @@
               <td>
                 <div class="mw"><button class="db" onclick="openMenu(this)">⋮</button>
                   <div class="dd">
+                    <div class="ddi" onclick="go('cl-view','Palermo');closeMenus()"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>Ver</div>
                     <div class="ddi" onclick="go('cl-form','editar','Palermo');closeMenus()"><svg viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
@@ -2187,6 +2377,11 @@
               <td>
                 <div class="mw"><button class="db" onclick="openMenu(this)">⋮</button>
                   <div class="dd">
+                    <div class="ddi" onclick="go('cl-view','Central');closeMenus()"><svg viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                        <circle cx="12" cy="12" r="3" />
+                      </svg>Ver</div>
                     <div class="ddi" onclick="go('cl-form','editar','Central');closeMenus()"><svg viewBox="0 0 24 24"
                         fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
@@ -2209,6 +2404,83 @@
             </tr>
           </tbody>
         </table>
+      </div>
+    </div>
+
+    <!-- ══ CLIENTE CONSULTA COMPRIMIDA ══ -->
+    <div class="pg" id="pg-cl-view">
+      <div class="back" onclick="go('cl')">← Volver a Clientes</div>
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px">
+        <div>
+          <div class="ptitle" id="cl-view-name">Distribuidora El Sol</div>
+          <div class="psub" style="margin-bottom:0">Consulta rápida de información del cliente.</div>
+        </div>
+        <div id="cl-view-status-badge">
+          <!-- Active status badge dynamic -->
+        </div>
+      </div>
+
+      <div class="cl-view-container">
+        <div class="cl-view-grid">
+
+          <!-- SECCIÓN 1: DATOS GENERALES Y FISCALES -->
+          <div class="cl-view-card">
+            <div class="cl-view-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+              Datos Generales y Fiscales
+            </div>
+            <div class="cl-view-card-body" id="cl-view-sec-general">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- SECCIÓN 2: PERFIL Y PARAMETROS -->
+          <div class="cl-view-card">
+            <div class="cl-view-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path
+                  d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+              </svg>
+              Perfil de Cliente y Parámetros
+            </div>
+            <div class="cl-view-card-body" id="cl-view-sec-perfil">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- SECCIÓN 3: LOCACIONES DE ENTREGA -->
+          <div class="cl-view-card">
+            <div class="cl-view-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              Locaciones de Entrega
+            </div>
+            <div class="cl-view-card-body" id="cl-view-sec-locaciones">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+          <!-- SECCIÓN 4: CUENTA CORRIENTE -->
+          <div class="cl-view-card">
+            <div class="cl-view-card-title">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="4" width="20" height="16" rx="2" />
+                <line x1="12" y1="4" x2="12" y2="20" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+              </svg>
+              Cuenta Corriente y Crédito
+            </div>
+            <div class="cl-view-card-body" id="cl-view-sec-cc">
+              <!-- Dynamically populated -->
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
 
@@ -3863,9 +4135,14 @@
       if (el) el.classList.add('on');
 
       // Update sidebar active state
-      const sbMap = { cl: 'sb-cl', 'cl-form': 'sb-cl', zo: 'sb-zo', ve: 'sb-ve', sc: 'sb-sc', eq: 'sb-eq', fq: 'sb-fq', 'fq-edit': 'sb-fq', 'fq-franq': 'sb-fq', 'pos-list': 'sb-fq', wiz: 'sb-fq' };
+      const sbMap = { cl: 'sb-cl', 'cl-form': 'sb-cl', 'cl-view': 'sb-cl', zo: 'sb-zo', ve: 'sb-ve', sc: 'sb-sc', eq: 'sb-eq', fq: 'sb-fq', 'fq-edit': 'sb-fq', 'fq-franq': 'sb-fq', 'pos-list': 'sb-fq', wiz: 'sb-fq' };
       document.querySelectorAll('.sbi').forEach(s => s.classList.remove('act'));
       if (sbMap[page]) document.getElementById(sbMap[page])?.classList.add('act');
+
+      if (page === 'cl-view') {
+        const clientKey = a || 'El Sol';
+        renderClientView(clientKey);
+      }
 
       if (page === 'fq-edit') {
         _fqName = a || 'Juan Pérez'; _fqMay = !!b;
@@ -4835,6 +5112,282 @@
         wrap.style.display = 'block';
       }
       setTimeout(initFloatingLabels, 50);
+    }
+
+    function renderClientView(clientKey) {
+      const data = CLIENT_DATA[clientKey] || CLIENT_DATA['El Sol'];
+      document.getElementById('cl-view-name').textContent = data.name;
+
+      // Status badge
+      const statusBadge = document.getElementById('cl-view-status-badge');
+      if (!statusBadge) return;
+      if (data.activo) {
+        statusBadge.innerHTML = `<span class="bdg bdg-g" style="font-size: 12.5px; padding: 4px 12px; border-radius: 99px;">✓ Activo</span>`;
+      } else {
+        statusBadge.innerHTML = `<span class="bdg" style="background: var(--red-s); color: var(--red); border: 1px solid rgba(226,75,74,.2); font-size: 12.5px; padding: 4px 12px; border-radius: 99px;">✕ Inactivo</span>`;
+      }
+
+      // 1. General and Fiscal Data
+      const genContainer = document.getElementById('cl-view-sec-general');
+      if (genContainer) {
+        let detailsHtml = `<div class="cl-view-list">`;
+        const personaLabel = data.persona === 'juridica' ? 'Persona Jurídica' : 'Persona Física';
+        detailsHtml += `
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Tipo de Persona</span>
+            <span class="cl-view-val"><span class="bdg bdg-p" style="font-size: 10.5px; padding: 1px 7px;">${personaLabel}</span></span>
+          </div>`;
+
+        if (data.persona === 'juridica') {
+          detailsHtml += `
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Razón Social</span>
+              <span class="cl-view-val" style="font-weight:700">${data.razonSocial || data.name}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Contacto</span>
+              <span class="cl-view-val">${data.nombreContacto || ''} ${data.apellidoContacto || ''} (${data.tipoDocContacto || 'DNI'}: ${data.numDocContacto || ''})</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Email Contacto</span>
+              <span class="cl-view-val">${data.emailContacto || '—'}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Teléfono Contacto</span>
+              <span class="cl-view-val">${data.telContacto || '—'}</span>
+            </div>`;
+        } else {
+          detailsHtml += `
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Nombre Completo</span>
+              <span class="cl-view-val" style="font-weight:700">${data.nombre || ''} ${data.apellido || ''}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Documento</span>
+              <span class="cl-view-val">${data.tipoDoc || 'DNI'} ${data.numDoc || ''}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Fecha Nac. / Sexo</span>
+              <span class="cl-view-val">${data.fechaNac || '—'} / ${data.sexo || '—'}</span>
+            </div>`;
+        }
+
+        detailsHtml += `
+
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Domicilio Principal</span>
+            <span class="cl-view-val">${data.calle || ''} ${data.numero || ''}${data.piso ? ', Piso ' + data.piso : ''}${data.depto ? ', Dpto ' + data.depto : ''}</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Localidad</span>
+            <span class="cl-view-val">${data.ciudad || ''}, ${data.provincia || ''} (${data.pais || ''})</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Código Postal</span>
+            <span class="cl-view-val mono">${data.cp || '—'}</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Condición IVA</span>
+            <span class="cl-view-val">${data.iva || '—'}</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">CUIT / Fiscal ID</span>
+            <span class="cl-view-val mono">${data.cuit || '—'}</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Ingresos Brutos</span>
+            <span class="cl-view-val mono">${data.iibb || '—'}</span>
+          </div>
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Fecha Alta</span>
+            <span class="cl-view-val">${data.alta || '—'}</span>
+          </div>`;
+
+        if (!data.activo && data.motivo) {
+          detailsHtml += `
+            <div class="cl-view-item" style="color: var(--red);">
+              <span class="cl-view-lbl" style="color: var(--red);">Motivo Inactividad</span>
+              <span class="cl-view-val" style="color: var(--red); font-weight:700;">${data.motivo}</span>
+            </div>`;
+        }
+
+        detailsHtml += `</div>`;
+        genContainer.innerHTML = detailsHtml;
+      }
+
+      // 2. Perfil y Parámetros
+      const perfContainer = document.getElementById('cl-view-sec-perfil');
+      if (perfContainer) {
+        let perfHtml = `<div class="cl-view-list">`;
+        const catLabels = { mayorista: 'Mayorista', minorista: 'Minorista', proveedores: 'Proveedores' };
+        const catPills = (data.categories || []).map(cat => `<span class="bdg bdg-p" style="font-weight:600; font-size:10px; padding: 1px 6px;">★ ${catLabels[cat] || cat}</span>`).join(' ');
+
+        perfHtml += `
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Perfiles Asignados</span>
+            <span class="cl-view-val">${catPills || '<span style="color:var(--g400); font-style:italic">Ninguno</span>'}</span>
+          </div>`;
+
+        if ((data.categories || []).includes('mayorista')) {
+          perfHtml += `
+            <div class="cl-view-item" style="margin-top: 6px; border-bottom: none; padding-bottom: 0;">
+              <span class="cl-view-lbl" style="font-weight: 700; color: var(--accent);">Línea Mayorista</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Canal / Subcanal</span>
+              <span class="cl-view-val">Mayorista / ${data.subcanal ? (data.subcanal === 'gastro' ? 'Gastronómico' : data.subcanal === 'store' ? 'Store' : 'Express') : '—'}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Lista de Precios</span>
+              <span class="cl-view-val" style="font-weight: 700; color: var(--accent);">${data.lp || '—'}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Estado Mayorista</span>
+              <span class="cl-view-val">${data.mayActive !== false ? '<span style="color:var(--green)">✓ Activo</span>' : '<span style="color:var(--red)">✕ Inactivo</span>'}</span>
+            </div>`;
+          if (data.mayActive === false && data.mayMotivo) {
+            perfHtml += `
+              <div class="cl-view-item">
+                <span class="cl-view-lbl" style="color:var(--red)">Motivo Desactivación</span>
+                <span class="cl-view-val" style="color:var(--red)">${data.mayMotivo}</span>
+              </div>`;
+          }
+        }
+
+        if ((data.categories || []).includes('minorista')) {
+          perfHtml += `
+            <div class="cl-view-item" style="margin-top: 6px; border-bottom: none; padding-bottom: 0;">
+              <span class="cl-view-lbl" style="font-weight: 700; color: var(--accent);">Línea Minorista</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Estado Minorista</span>
+              <span class="cl-view-val">${data.minActive !== false ? '<span style="color:var(--green)">✓ Activo</span>' : '<span style="color:var(--red)">✕ Inactivo</span>'}</span>
+            </div>`;
+        }
+
+        const franList = (data.franquicias || []).map(f => `<span class="chip" style="cursor:default; margin: 2px 0; font-size:11px; padding: 2px 8px;">${f}</span>`).join(' ');
+        perfHtml += `
+          <div class="cl-view-item" style="flex-direction: column; align-items: stretch; border-bottom: none; margin-top: 8px;">
+            <span class="cl-view-lbl" style="margin-bottom: 4px;">Franquicias Habilitadas (${(data.franquicias || []).length})</span>
+            <div class="chips" style="margin-top:0">${franList || '<span style="color:var(--g400); font-style:italic; font-size:11px">Ninguna franquicia asociada</span>'}</div>
+          </div>`;
+
+        perfHtml += `</div>`;
+        perfContainer.innerHTML = perfHtml;
+      }
+
+      // 3. Locaciones de Entrega
+      const locsContainer = document.getElementById('cl-view-sec-locaciones');
+      if (locsContainer) {
+        const locs = data.locaciones || [];
+        if (locs.length === 0) {
+          locsContainer.innerHTML = `<div style="text-align: center; color: var(--g400); font-style: italic; padding-top: 24px;">No hay locaciones de entrega registradas.</div>`;
+        } else {
+          let locsHtml = `<div class="cl-view-locs">`;
+          locs.forEach(l => {
+            const isLocActive = l.activo !== false;
+            const locActiveBdg = isLocActive ? '' : `<span class="bdg" style="background:var(--red-s); color:var(--red); font-size:9px; padding: 0 4px; margin-left: 5px;">Inactivo</span>`;
+            const eqBadges = (l.equipos || []).map(eq => `<span class="eq-tag" style="font-size:10px; padding: 1px 6px;">❄ ${eq}</span>`).join(' ');
+            const sectorZona = `<span class="bdg bdg-p" style="font-size:10px; padding: 1px 6px;">${l.sector || '—'}</span> <span class="bdg bdg-m" style="font-size:10px; padding: 1px 6px;">${l.zona === 'norte' ? 'Zona Norte' : l.zona === 'sur' ? 'Zona Sur' : 'Zona Centro'}</span>`;
+
+            locsHtml += `
+              <div class="cl-view-loc-card" ${isLocActive ? '' : 'style="opacity: 0.7;"'}>
+                <div class="cl-view-loc-title">
+                  <span>📍 ${l.calle} ${l.numero}${l.piso ? ' Piso ' + l.piso : ''}${l.depto ? ' Dpto ' + l.depto : ''}${locActiveBdg}</span>
+                  <span style="font-weight: 400; font-size: 11px; color: var(--g400);">${l.ciudad || ''}</span>
+                </div>
+                <div class="cl-view-loc-desc">
+                  Contacto: <strong>${l.contacto || '—'}</strong> ${l.telefono ? '(' + l.telefono + ')' : ''}
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:4px;">
+                  <div>${sectorZona}</div>
+                  <div style="font-size:11px; color:var(--g600);">Vendedor: <strong>${l.vendedor === 'carlos' ? 'Carlos Gómez' : l.vendedor === 'ana' ? 'Ana López' : l.vendedor === 'roberto' ? 'Roberto Díaz' : l.vendedor || '—'}</strong></div>
+                </div>
+                <div class="cl-view-loc-bottom">
+                  <span>Propio: <strong>${l.capacidadPropia ? l.capacidadPropia + ' kg' : '—'}</strong></span>
+                  <div class="eq-tags" style="margin-top:0; display:inline-flex; gap:3px;">${eqBadges || '<span style="color:var(--g400); font-style:italic;">Sin equipos asignados</span>'}</div>
+                </div>
+              </div>`;
+          });
+          locsHtml += `</div>`;
+          locsContainer.innerHTML = locsHtml;
+        }
+      }
+
+      // 4. Cuenta Corriente y Crédito
+      const ccContainer = document.getElementById('cl-view-sec-cc');
+      if (ccContainer) {
+        let ccHtml = `<div class="cl-view-list">`;
+
+        ccHtml += `
+          <div class="cl-view-item">
+            <span class="cl-view-lbl">Operaciones a Plazo</span>
+            <span class="cl-view-val">${data.cc ? '<span class="bdg bdg-g" style="font-size:10px; padding: 1px 7px;">✓ Habilitado</span>' : '<span class="bdg" style="background:var(--g100); color:var(--g400); font-size:10px; padding: 1px 7px;">✕ Deshabilitado</span>'}</span>
+          </div>`;
+
+        if (data.cc) {
+          /*
+          const limitNum = parseFloat((data.limite || '').replace(/[^0-9,-]/g, '').replace(',', '.'));
+          const balanceNum = parseFloat((data.saldo || '').replace(/[^0-9,-]/g, '').replace(',', '.'));
+
+          let pct = 0;
+          if (limitNum > 0) {
+            pct = Math.min(100, Math.max(0, (balanceNum / limitNum) * 100));
+          }
+
+          let fillClass = '';
+          if (pct >= 90) fillClass = 'red';
+          else if (pct >= 60) fillClass = 'amber';
+
+          const remainingNum = Math.max(0, limitNum - balanceNum);
+          const remainingStr = '$ ' + remainingNum.toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+          */
+
+          ccHtml += `
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Límite de Crédito</span>
+              <span class="cl-view-val" style="font-weight:700;">${data.limite || '$ 0,00'}</span>
+            </div>
+            <!--
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Saldo Utilizado</span>
+              <span class="cl-view-val" style="color: var(--amber); font-weight:700;">${data.saldo || '$ 0,00'}</span>
+            </div>
+            <div class="cl-view-item">
+              <span class="cl-view-lbl">Crédito Disponible</span>
+              <span class="cl-view-val" style="color: var(--green); font-weight:700;">\${remainingStr}</span>
+            </div>
+            
+            <div class="cl-view-progress-container" style="border-bottom: 1px dashed var(--g100); padding-bottom: 10px; margin-bottom: 6px;">
+              <div style="font-size: 11.5px; color: var(--g600); font-weight: 500; margin-bottom: 5px;">Consumo de Línea de Crédito: <strong style="color:var(--g800);">\${pct.toFixed(1)}%</strong></div>
+              <div class="cl-view-progress-bar">
+                <div class="cl-view-progress-fill \${fillClass}" style="width: \${pct}%"></div>
+              </div>
+              <div class="cl-view-progress-labels">
+                <span>$ 0,00 (0%)</span>
+                <span>Límite: \${data.limite}</span>
+              </div>
+            </div>
+            -->
+            
+            <div class="ai" style="align-self:flex-start; font-size:11.5px; margin-top: 4px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px; flex-shrink:0;">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
+              </svg>
+              <span>El sistema bloqueará facturaciones que excedan el límite de crédito en cuenta corriente.</span>
+            </div>`;
+        } else {
+          ccHtml += `
+            <div style="text-align: center; color: var(--g400); font-style: italic; padding-top: 24px;">
+              El cliente opera exclusivamente al contado. No se registran límites ni saldos de cuenta corriente.
+            </div>`;
+        }
+
+        ccHtml += `</div>`;
+        ccContainer.innerHTML = ccHtml;
+      }
     }
 
     function initFloatingLabels() {
