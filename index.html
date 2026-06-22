@@ -2251,7 +2251,7 @@
         <div class="srch"><span class="srch-i">🔍</span><input type="text"
             placeholder="Buscar por Nombre, CUIT, Mail…" /></div>
         <button class="btn bo">🔽 FILTRAR</button><button class="btn bo">↻ ACTUALIZAR</button>
-        <button class="btn bp" style="margin-left:auto" onclick="go('cl-form','nuevo')">＋ CREAR</button>
+        <button class="btn bp" style="margin-left:auto" onclick="go('cl-form','nuevo')">＋ CREAR CLIENTE</button>
       </div>
       <div class="pag">
         <div class="pag-l">Cantidad por página <select class="pag-sel">
@@ -2301,17 +2301,7 @@
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                         <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                       </svg>Editar</div>
-                    <div class="ddi" onclick="go('cl-form','editar','El Sol',2);closeMenus()"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>Locaciones</div>
-                    <div class="ddiv"></div>
-                    <div class="ddi dan" onclick="openDelModal('Distribuidora El Sol',false);closeMenus()"><svg
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="3 6 5 6 21 6" />
-                        <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
-                      </svg>Eliminar</div>
+
                   </div>
                 </div>
               </td>
@@ -2344,17 +2334,7 @@
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                         <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                       </svg>Editar</div>
-                    <div class="ddi" onclick="go('cl-form','editar','Palermo',2);closeMenus()"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>Locaciones</div>
-                    <div class="ddiv"></div>
-                    <div class="ddi dan" onclick="openDelModal('Heladería Palermo',false);closeMenus()"><svg
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="3 6 5 6 21 6" />
-                        <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
-                      </svg>Eliminar</div>
+
                   </div>
                 </div>
               </td>
@@ -2387,17 +2367,7 @@
                         <path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7" />
                         <path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z" />
                       </svg>Editar</div>
-                    <div class="ddi" onclick="go('cl-form','editar','Central',2);closeMenus()"><svg viewBox="0 0 24 24"
-                        fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-                        <circle cx="12" cy="10" r="3" />
-                      </svg>Locaciones</div>
-                    <div class="ddiv"></div>
-                    <div class="ddi dan" onclick="openDelModal('Kiosco Central',true);closeMenus()"><svg
-                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <polyline points="3 6 5 6 21 6" />
-                        <path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6" />
-                      </svg>Eliminar</div>
+
                   </div>
                 </div>
               </td>
@@ -2769,7 +2739,7 @@
           <div style="display:flex; gap:10px; align-items:center">
             <div class="fld" style="flex: 1; max-width: 240px">
               <div class="fld-wrap hv">
-                <label>Seleccionar categoría</label>
+                <label>Seleccionar grupo</label>
                 <select id="add-categ-sel">
                   <option value="" selected disabled>Seleccionar…</option>
                   <option value="mayorista">Mayorista</option>
@@ -2802,7 +2772,7 @@
             <div class="trow" style="margin: 12px 0">
               <label class="sw"><input type="checkbox" id="cl-may-active" onchange="onCategoryActiveChange('may')"
                   checked /><span class="sl"></span></label>
-              <span style="font-size:13px;color:var(--g600);font-weight:500">Categoría activa</span>
+              <span style="font-size:13px;color:var(--g600);font-weight:500">Grupo activo</span>
             </div>
             <div class="fld" id="cl-may-motivo-wrap" style="display:none; margin-bottom:14px">
               <div class="fld-wrap"><input type="text" id="cl-may-motivo" placeholder="Motivo de deshabilitación*"
@@ -2853,11 +2823,7 @@
                 </div>
               </div>
             </div>
-            <div class="aw" style="margin-top:0; margin-bottom:18px"><svg viewBox="0 0 24 24" fill="none"
-                stroke="currentColor" stroke-width="2">
-                <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" />
-                <line x1="12" y1="9" x2="12" y2="13" />
-              </svg><span>El país de la lista debe coincidir con el país de los datos fiscales del cliente.</span></div>
+
           </div>
 
           <!-- Configuración Minorista -->
@@ -2868,7 +2834,7 @@
             <div class="trow" style="margin: 12px 0">
               <label class="sw"><input type="checkbox" id="cl-min-active" onchange="onCategoryActiveChange('min')"
                   checked /><span class="sl"></span></label>
-              <span style="font-size:13px;color:var(--g600);font-weight:500">Categoría activa</span>
+              <span style="font-size:13px;color:var(--g600);font-weight:500">Grupo activo</span>
             </div>
             <div class="fld" id="cl-min-motivo-wrap" style="display:none; margin-bottom:14px">
               <div class="fld-wrap"><input type="text" id="cl-min-motivo" placeholder="Motivo de deshabilitación*"
@@ -2887,7 +2853,7 @@
             <div class="trow" style="margin: 12px 0">
               <label class="sw"><input type="checkbox" id="cl-prov-active" onchange="onCategoryActiveChange('prov')"
                   checked /><span class="sl"></span></label>
-              <span style="font-size:13px;color:var(--g600);font-weight:500">Categoría activa</span>
+              <span style="font-size:13px;color:var(--g600);font-weight:500">Grupo activo</span>
             </div>
             <div class="fld" id="cl-prov-motivo-wrap" style="display:none; margin-bottom:14px">
               <div class="fld-wrap"><input type="text" id="cl-prov-motivo" placeholder="Motivo de deshabilitación*"
@@ -3225,21 +3191,7 @@
                 </div>
                 <div class="fld-hint">El POS alertará al superar este monto.</div>
               </div>
-              <div class="fld">
-                <div class="fld-wrap hv">
-                  <label>Límite tiempo de pago (días)</label>
-                  <select id="cl-cc-plazo">
-                    <option value="30">30 días</option>
-                    <option value="60">60 días</option>
-                    <option value="90">90 días</option>
-                    <option value="120">120 días</option>
-                    <option value="150">150 días</option>
-                    <option value="180">180 días</option>
-                  </select>
-                </div>
-                <span class="farr" style="top:29px">▼</span>
-                <div class="fld-hint">Plazo máximo en días para cancelar deudas.</div>
-              </div>
+
             </div>
             <div class="ai" style="align-self:flex-start;font-size:12px"><svg viewBox="0 0 24 24" fill="none"
                 stroke="currentColor" stroke-width="2">
@@ -4220,7 +4172,6 @@
 
           document.getElementById('cc-tog').checked = false;
           document.getElementById('cl-cc-limite').value = '$ 0,00';
-          document.getElementById('cl-cc-plazo').value = '30';
           onCC(); // Hide CC fields
 
           document.getElementById('cl-subcanal').value = '';
@@ -4322,7 +4273,6 @@
 
           document.getElementById('cc-tog').checked = data.cc;
           document.getElementById('cl-cc-limite').value = data.limite;
-          document.getElementById('cl-cc-plazo').value = data.plazo || '30';
           onCC();
 
           document.getElementById('cl-subcanal').value = data.subcanal;
@@ -4842,7 +4792,6 @@
 
         CLIENT_DATA[clientKey].cc = document.getElementById('cc-tog').checked;
         CLIENT_DATA[clientKey].limite = document.getElementById('cl-cc-limite').value;
-        CLIENT_DATA[clientKey].plazo = document.getElementById('cl-cc-plazo').value;
 
         CLIENT_DATA[clientKey].mayActive = document.getElementById('cl-may-active').checked;
         CLIENT_DATA[clientKey].mayMotivo = document.getElementById('cl-may-motivo').value;
@@ -5340,18 +5289,13 @@
               <span class="cl-view-lbl">Límite de Crédito</span>
               <span class="cl-view-val" style="font-weight:700;">${data.limite || '$ 0,00'}</span>
             </div>
-            <div class="cl-view-item">
-              <span class="cl-view-lbl">Límite tiempo de pago</span>
-              <span class="cl-view-val" style="font-weight:700;">${data.plazo || '30'} días</span>
-            </div>
-            
             <div class="ai" style="align-self:flex-start; font-size:11.5px; margin-top: 4px;">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px; height:14px; flex-shrink:0;">
                 <circle cx="12" cy="12" r="10" />
                 <line x1="12" y1="8" x2="12" y2="12" />
                 <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
-              <span>El sistema bloqueará facturaciones que excedan el límite de crédito o el plazo máximo de pago.</span>
+              <span>El sistema bloqueará facturaciones que excedan el límite de crédito.</span>
             </div>`;
         } else {
           ccHtml += `
